@@ -1,5 +1,4 @@
-# lalafo-login-module-testing
-Lalafo login modulunun manual test edilməsi (funksional və qeyri-funksional yoxlamalar)
+# Lalafo.az – Giriş/Qeydiyyat modulunun funksionallıq və qeyri-funksional testi (Test Case / Task 02) 
 
 # Qeyri-Funksional testing - Lalafo.az
 
@@ -253,16 +252,15 @@ Nəticə: hər iki xana qırmızı rənglə vurğulandı, şərtlər göstərild
 
 10. Login və parol xanasına həddindən artıq (sonsuz) simvol daxil etmə yoxlanışı (giriş butonu klik edilmədən)  
 Gözlənilən nəticə: e-poçt, nömrə və parol xanaları üçün müəyyən simvol limiti olmalı və artıq simvolların daxil edilməsinə icazə verilməməlidir  
-Nəticə: giriş butonu klik edilmədən xanaya sonsuz sayda simvol daxil etmək mümkün oldu — BUG kimi qeydə alındı  
+Nəticə: giriş butonu klik edilmədən xanaya sonsuz sayda simvol daxil etmək mümkün oldu - BUG kimi qeydə alındı  
 
 11.Nömrə xanasına formatdan kənar (11 və daha çox rəqəm) daxil edilməsinin yoxlanışı (giriş butonu klik edilmədən)  
-Gözlənilən nəticə:  
-Xana qırmızı rənglə vurğulanmalı və uyğun şərt/xəta mesajı davamlı şəkildə göstərilməlidir  
+Gözlənilən nəticə:Xana qırmızı rənglə vurğulanmalı və uyğun şərt/xəta mesajı davamlı şəkildə göstərilməlidir  
 Nəticə: İlk 10 rəqəmdə xəta mesajı və qırmızı rəng göstərildi, 11-ci rəqəm daxil edildikdə isə xəbərdarlıq və rəng göstəricisi tamamilə itdi (heç bir rəng və mesaj göstərilmədi), 12-ci rəqəmdən etibarən isə yenidən xəta mesajı və qırmızı rəng göstərilməyə başladı. - BUG kimi qeydə alındı  
 
 12. E-poçt xanasına formatdan kənar (məsələn: example@) daxil etmə yoxlanışı (giriş butonu klik edilmədən)  
 Gözlənilən nəticə: xana qırmızı rənglə vurğulanmalı və məlumat qəbul edilməməlidir  
-Nəticə: ilkin mərhələdə qəbul edilmədi, lakin parol xanası düzgün doldurulduqda e-poçt xanası yaşıl rəng aldı və şərt ödənilmiş kimi göstərildi — BUG kimi qeydə alındı  
+Nəticə: ilkin mərhələdə qəbul edilmədi, lakin parol xanası düzgün doldurulduqda e-poçt xanası yaşıl rəng aldı və şərt ödənilmiş kimi göstərildi - BUG kimi qeydə alındı  
 
 ---
 
@@ -311,5 +309,75 @@ Nəticə: qeydiyyat mümkün olmadı və uyğun xəbərdarlıq göstərildi
 
 6. Nömrə xanasına həddindən artıq (sonsuz) simvol daxil edilməsi (qeydiyyat butonu klik edilmədən)  
 Gözlənilən nəticə: nömrə üçün simvol limiti olmalı və artıq simvollar qəbul edilməməlidir  
-Nəticə: sistem limit tətbiq etdi və artıq simvollar qəbul edilmədi  
+Nəticə: sistem limit tətbiq etdi və artıq simvollar qəbul edilmədi
+
+
+
+### Lalafo.az – Giriş/Qeydiyyat modulunun funksionallıq və qeyri-funksional testi (Test Case / Task 02) tamamlandı.
+
+Pozitiv və negativ test ssenariləri, həmçinin usability, compatibility və reliability yoxlanışları uğurla icra edildi.
+
+Test zamanı aşağıdakı problemlər, aydınlaşdırılmalı məqamlar və təkliflər aşkar olundu:
+
+
+
+Qeyri-Funksional testing
+
+Usability Testing
+
+Giriş bölməsi
+
+5.  Giriş zamanı Facebook, Google, VKontakte və Odnoklassniki kimi fərqli platformalar vasitəsilə daxil olmaq mümkündür. Bu, fərqli platforma istifadəçilərinin rahatlığını nəzərə alır.
+Nəticə: Alternativ giriş üsullarının mövcudluğu istifadəçi təcrübəsini yaxşılaşdırır.
+Təklif (Improvement): Mövcud platformalara əlavə olaraq Apple account ilə giriş imkanı da əlavə edilə bilər.
+
+Qeydiyyat bölməsi (Usability)
+20. Giriş bölməsində olduğu kimi qeydiyyat zamanı da fərqli platformalar (Facebook, Google və s.) ilə qeydiyyat mümkündür
+ Nəticə: İstifadəçilər üçün sürətli və rahat qeydiyyat imkanı yaradılır
+Təklif (Improvement): Apple ilə qeydiyyat imkanı əlavə edilə bilər
+
+Compatibility Testing 
+Microsoft Edge
+1. Microsoft Edge  brauzeri ilə lalafo.az saytının qeyri-funksional (compatibility) yoxlanışı aparıldı.
+Yuxarıda 1–24 arası qeyd olunan bütün testlər eyni şəkildə icra edildi.
+Nəticə: Testlərin əksəriyyəti Google Chrome brauzerində əldə olunan nəticələrlə uyğunluq təşkil edir. Lakin 23-cü test zamanı “Mən robot deyiləm” yoxlama elementi mövcud deyil. Bu hal uyğunluq problemi kimi qiymətləndirildi və BUG olaraq qeyd olundu.
+
+2. Giriş və Qeydiyyat bölməsində parol xanası doldurulduqda əlavə ikinci bir hide/show ikonu yaranır. Bu ikon istifadə edildikdə parol daha böyük şriftlə görünür və ikonun özü də böyük ölçüdə olur.
+Nəticə: Gözlənilməyən UI davranışı müşahidə olunur 
+Requirement clarification tələb olunur: İkinci ikonun olması dizayn tələbinə daxildirmi, yoxsa səhvdir — aydınlaşdırılmalıdır.
+
+Reliability Testing
+1. Sistemdə uzun müddət istifadə aparıldı və qeydiyyat bölməsi test edildi. Test zamanı əvvəl müşahidə olunan captcha (robot yoxlanışı) bu dəfə görünmədi.
+Nəticə: Uzun müddətli istifadə zamanı robot yoxlanışı göstərilmədi. 
+Requirement Clarification: Bu davranışın sistem tələblərinə uyğun olub-olmaması aydınlaşdırılmalıdır 
+
+FUNKSİONAL TESTİNG
+
+Negativ yoxlanışlar
+
+Giriş bölməsi 
+
+10. Login və parol xanasına həddindən artıq (sonsuz) simvol daxil etmə yoxlanışı (giriş butonu klik edilmədən)
+Gözlənilən nəticə: e-poçt, nömrə və parol xanaları üçün müəyyən simvol limiti olmalı və artıq simvolların daxil edilməsinə icazə verilməməlidir
+Nəticə: giriş butonu klik edilmədən xanaya sonsuz sayda simvol daxil etmək mümkün oldu - BUG kimi qeydə alındı
+
+11. Nömrə xanasına formatdan kənar (11 və daha çox rəqəm) daxil edilməsinin yoxlanışı (giriş butonu klik edilmədən)
+Gözlənilən nəticə: Xana qırmızı rənglə vurğulanmalı və uyğun şərt/xəta mesajı davamlı şəkildə göstərilməlidir
+Nəticə: İlk 10 rəqəmdə xəta mesajı və qırmızı rəng göstərildi.11-ci rəqəm daxil edildikdə isə xəbərdarlıq və rəng göstəricisi tamamilə itdi (heç bir rəng və mesaj göstərilmədi).12-ci rəqəmdən etibarən isə yenidən xəta mesajı və qırmızı rəng göstərilməyə başladı. - BUG kimi qeydə alındı
+
+12. E-poçt xanasına formatdan kənar (məsələn: example@) daxil etmə yoxlanışı (giriş butonu klik edilmədən)
+ Gözlənilən nəticə: xana qırmızı rənglə vurğulanmalı və məlumat qəbul edilməməlidir
+ Nəticə: ilkin mərhələdə qəbul edilmədi, lakin parol xanası düzgün doldurulduqda e-poçt xanası yaşıl rəng aldı və şərt ödənilmiş kimi göstərildi - BUG kimi qeydə alındı
+
+Şifrənizi unutmusunuz bölməsi
+
+1. Nömrə formatına uyğun olmayan rəqəmlər daxil edildi və “şifrəni əldə et” butonu klik edildi
+Gözlənilən nəticə: Xana qırmızı rənglə vurğulanmalı, səhv olduğu şərt ilə bildirilməli və sistem tərəfindən qəbul edilməməlidir
+Nəticə: İlk 10 rəqəmdə səhv olduğu bildirildi və xana qırmızı rəng aldı, lakin 11-ci rəqəm daxil edildikdə xəbərdarlıq mesajı itdi və “şifrəni əldə et” butonu klik edildikdə “şifrəniz göndərildi” mesajı göründü. 12-ci rəqəmdən sonra isə yenidən xəta mesajı göstərilməyə başladı 
+Uyğunsuz validasiya müşahidə olunudu - BUG kimi qeydə alındı
+
+
+
+
+
 
